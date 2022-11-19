@@ -1,0 +1,6 @@
+[MAIN]
+recursive=yes
+disable=
+    missing-docstring,
+    duplicate-code,
+    unspecified-encoding,
