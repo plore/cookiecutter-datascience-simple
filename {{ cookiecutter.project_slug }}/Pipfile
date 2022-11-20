@@ -10,6 +10,8 @@ numpy = "*"
 pandas = "*"
 scipy = "*"
 seaborn = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
 
 [dev-packages]
 
