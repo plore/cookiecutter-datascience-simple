@@ -4,16 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-jupyter = "*"
 matplotlib = "*"
 numpy = "*"
 pandas = "*"
-scipy = "*"
-seaborn = "*"
-jupyter_contrib_nbextensions = "*"
-jupyter_nbextensions_configurator = "*"
 
 [dev-packages]
+black = "*"
+'black[jupyter]' = "*"
+flake8 = "*"
+isort = "*"
+jupyter = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.11"

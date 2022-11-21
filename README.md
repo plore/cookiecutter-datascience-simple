@@ -10,6 +10,6 @@ Provides some convenience options for working with Jupyter Notebooks.
 ### Usage
 ```sh
 python -m pip install cookiecutter
-cookiecutter gh:plore/cookiecutter-datascience-simple
+python -m cookiecutter gh:plore/cookiecutter-datascience-simple
 ```
 This cookiecutter uses [pipenv](https://pipenv.pypa.io/en/latest/index.html) for environment and dependencies management.
