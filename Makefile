@@ -5,6 +5,10 @@ init:
 
 .PHONY: test
 test:
+	pipenv run pytest -s -k "not initialization"
+
+.PHONY: test-all
+test-all:
 	pipenv run pytest -s
 
 .PHONY: format
