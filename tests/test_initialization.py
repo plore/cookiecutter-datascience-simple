@@ -7,7 +7,7 @@ from unittest.mock import patch
 import nbformat
 import pytest
 from helper import create_project
-from nbconvert.preprocessors.execute import executenb
+from nbconvert.preprocessors import ExecutePreprocessor
 
 PROJECT_NAME = "foo"
 
@@ -16,7 +16,8 @@ def create_and_run_notebook():
     notebook = nbformat.v4.new_notebook()
     notebook["cells"] = [nbformat.v4.new_code_cell("1+1")]
 
-    executenb(notebook)
+    ep = ExecutePreprocessor()
+    ep.preprocess(notebook)
 
     path = Path(os.getcwd()) / "test_notebook.ipynb"
     with open(path, "w") as outfile:
@@ -39,7 +40,9 @@ def test_format_target_finds_no_errors(initialize_project):
         subprocess.run(["make", "format"], check=True)
 
 
-@patch.dict(os.environ, {"PYDEVD_DISABLE_FILE_VALIDATION": "1"})
+@patch.dict(
+    os.environ, {"PYDEVD_DISABLE_FILE_VALIDATION": "1"}
+)  # to disable debug messages
 def test_format_corrects_notebooks(initialize_project):
     create_and_run_notebook()
 
