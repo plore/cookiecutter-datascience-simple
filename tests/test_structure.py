@@ -24,9 +24,11 @@ def test_has_expected_paths(tmp_path):
         "foo/.gitignore",
         "foo/.pre-commit-config.yaml",
         "foo/.pylintrc",
-        "foo/src/.gitkeep",
         "foo/Makefile",
         "foo/Pipfile",
         "foo/README.md",
+        "foo/notebooks/template.ipynb",
+        "foo/src/.gitkeep",
+        "foo/tests/.gitkeep",
     }
     assert expected_paths.issubset(created_paths)
