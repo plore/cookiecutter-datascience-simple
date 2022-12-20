@@ -43,7 +43,7 @@ def test_format_target_finds_no_errors(initialize_project):
 @patch.dict(
     os.environ, {"PYDEVD_DISABLE_FILE_VALIDATION": "1"}
 )  # to disable debug messages
-def test_format_corrects_notebooks(initialize_project):
+def test_format_corrects_notebooks_and_strips_output(initialize_project):
     create_and_run_notebook()
 
     subprocess.run(["make", "format"], check=True)
@@ -52,6 +52,7 @@ def test_format_corrects_notebooks(initialize_project):
         notebook = nbformat.read(notebook_file, as_version=4)
 
     assert notebook["cells"][0]["source"] == "1 + 1"
+    assert notebook["cells"][0]["outputs"] == []
 
 
 def test_lint_target_finds_no_errors(initialize_project):

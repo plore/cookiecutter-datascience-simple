@@ -8,11 +8,12 @@ cookiecutter = "*"
 ipython = "*"
 
 [dev-packages]
-pytest = "*"
-flake8 = "*"
-pylint = "*"
-isort = "*"
 black = "*"
+'black[jupyter]' = "*"
+flake8 = "*"
+isort = "*"
+pylint = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.11"

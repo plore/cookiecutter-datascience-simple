@@ -8,6 +8,7 @@ init:
 format:
 	pipenv run black .
 	pipenv run isort .
+	find -name "*.ipynb" -not -path "*ipynb_checkpoints*" -print0 | xargs -0 pipenv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
 
 .PHONY: lint
 lint:
