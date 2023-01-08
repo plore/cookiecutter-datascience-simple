@@ -7,7 +7,7 @@ init:
 format:
 	poetry run black .
 	poetry run isort .
-	find -name "*.ipynb" -not -path "*ipynb_checkpoints*" -print0 | xargs -0 pipenv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
+	find . -name "*.ipynb" -not -path "*ipynb_checkpoints*" -print0 | xargs -0 pipenv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
 
 .PHONY: lint
 lint:
