@@ -5,13 +5,21 @@ from cookiecutter.main import cookiecutter
 TEMPLATE_DIR = str(Path(__file__).parent.parent)
 
 
-def create_project(output_dir: Path, name: str, description: str) -> None:
+def create_project(
+    output_dir: Path,
+    author: str | None = None,
+    email: str | None = None,
+    project_name: str = "foo",
+    description: str = "A description",
+) -> None:
     cookiecutter(
         template=TEMPLATE_DIR,
         output_dir=output_dir,
         no_input=True,
         extra_context={
-            "project_name": name,
+            "full_name": author,
+            "email": email,
+            "project_name": project_name,
             "project_description": description,
         },
     )

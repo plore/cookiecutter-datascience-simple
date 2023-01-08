@@ -15,7 +15,7 @@ def filepaths_from(top_directory: Path) -> list[Path]:
 
 
 def test_has_expected_paths(tmp_path):
-    create_project(tmp_path, "foo", "This is a project")
+    create_project(tmp_path, "foo")
 
     created_paths = {str(path) for path in filepaths_from(tmp_path)}
 
@@ -25,7 +25,7 @@ def test_has_expected_paths(tmp_path):
         "foo/.pre-commit-config.yaml",
         "foo/.pylintrc",
         "foo/Makefile",
-        "foo/Pipfile",
+        "foo/pyproject.toml",
         "foo/README.md",
         "foo/notebooks/template.ipynb",
         "foo/src/.gitkeep",

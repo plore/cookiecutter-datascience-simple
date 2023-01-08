@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_name }}"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
+{% if cookiecutter.full_name and cookiecutter.email -%}
+    authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+{%- elif cookiecutter.full_name -%}
+    authors = ["{{ cookiecutter.full_name }}"]
+{%- elif cookiecutter.email -%}
+    authors = ["<{{ cookiecutter.email }}>"]
+{%- else -%}
+    authors = []
+{%- endif %}
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+jupyter = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
+pre-commit = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

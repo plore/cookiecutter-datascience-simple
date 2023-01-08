@@ -1,4 +1,6 @@
 {
+    "full_name": "",
+    "email": "",
     "project_name": null,
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
 	"project_description": null

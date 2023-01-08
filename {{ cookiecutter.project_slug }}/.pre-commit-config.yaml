@@ -6,4 +6,4 @@ repos:
         files: \.ipynb$
         stages: [commit]
         language: system
-        entry: pipenv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
+        entry: poetry run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace

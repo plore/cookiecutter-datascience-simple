@@ -27,7 +27,7 @@ def create_and_run_notebook():
 @pytest.fixture(scope="module")
 def initialize_project(tmp_path_factory):
     parent_dir = tmp_path_factory.mktemp("parent")
-    create_project(parent_dir, PROJECT_NAME, "This is a project")
+    create_project(parent_dir, project_name=PROJECT_NAME)
     old_working_dir = os.getcwd()
     os.chdir(parent_dir / PROJECT_NAME)
     subprocess.run(["make", "init"], check=True)
