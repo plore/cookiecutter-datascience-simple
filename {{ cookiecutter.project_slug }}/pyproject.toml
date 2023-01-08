@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_name }}"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
+authors = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+jupyter = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
+pre-commit = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

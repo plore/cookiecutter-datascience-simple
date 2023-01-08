@@ -25,7 +25,7 @@ def test_has_expected_paths(tmp_path):
         "foo/.pre-commit-config.yaml",
         "foo/.pylintrc",
         "foo/Makefile",
-        "foo/Pipfile",
+        "foo/pyproject.toml",
         "foo/README.md",
         "foo/notebooks/template.ipynb",
         "foo/src/.gitkeep",

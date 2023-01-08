@@ -12,4 +12,4 @@ Provides some convenience options for working with Jupyter Notebooks.
 python -m pip install cookiecutter
 python -m cookiecutter gh:plore/cookiecutter-datascience-simple
 ```
-This cookiecutter uses [pipenv](https://pipenv.pypa.io/en/latest/index.html) for environment and dependencies management.
+This cookiecutter uses [poetry](https://python-poetry.org/) for environment and dependencies management.
