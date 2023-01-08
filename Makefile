@@ -8,7 +8,8 @@ test:
 
 .PHONY: test-all
 test-all:
-	poetry run pytest -s
+	poetry run pytest -s -k "not initialization"
+	poetry run pytest -k "initialization"
 
 .PHONY: format
 format:
