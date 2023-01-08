@@ -1,24 +1,23 @@
 .PHONY: init
 init:
-	pipenv lock
-	pipenv sync --dev
+	poetry install
 
 .PHONY: test
 test:
-	pipenv run pytest -s -k "not initialization"
+	poetry run pytest -s -k "not initialization"
 
 .PHONY: test-all
 test-all:
-	pipenv run pytest -s
+	poetry run pytest -s
 
 .PHONY: format
 format:
-	pipenv run black .
-	pipenv run isort .
+	poetry run black .
+	poetry run isort .
 
 .PHONY: lint
 lint:
-	pipenv run black --check .
-	pipenv run isort --check .
-	pipenv run flake8 .
-	pipenv run pylint .
+	poetry run black --check .
+	poetry run isort --check .
+	poetry run flake8 .
+	poetry run pylint .

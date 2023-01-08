@@ -1,0 +1,24 @@
+[tool.poetry]
+name="cookiecutter-datascience-simple"
+version="0.1.0"
+description="A template for simple data science projects."
+license="MIT"
+authors=["Peter Lorenz <lorenz.ptr91@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+cookiecutter = "*"
+ipython = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+flake8 = "*"
+pylint = "*"
+isort = "*"
+black = "*"
+nbformat = "^5.7.1"
+nbconvert = "^7.2.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
