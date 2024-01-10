@@ -21,12 +21,13 @@ pandas = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
-flake8 = "*"
-isort = "*"
 jupyter = "*"
-jupyter_contrib_nbextensions = "*"
-jupyter_nbextensions_configurator = "*"
+nbqa = "*"
 pre-commit = "*"
+ruff = "*"
+
+[tool.ruff]
+select = ["C", "E", "F", "I", "W"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

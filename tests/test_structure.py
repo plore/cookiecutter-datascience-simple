@@ -20,7 +20,6 @@ def test_has_expected_paths(tmp_path):
     created_paths = {str(path) for path in filepaths_from(tmp_path)}
 
     expected_paths = {
-        "foo/.flake8",
         "foo/.gitignore",
         "foo/.pre-commit-config.yaml",
         "foo/.pylintrc",

@@ -12,12 +12,17 @@ ipython = "*"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
-flake8 = "*"
 pylint = "*"
-isort = "*"
 black = "*"
-nbformat = "^5.7.1"
-nbconvert = "^7.2.7"
+nbformat = "*"
+nbconvert = "*"
+ruff = "*"
+
+[tool.ruff]
+select = ["C", "E", "F", "I", "W"]
+exclude = [
+    "{{cookiecutter.project_slug}}/pyproject.toml",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

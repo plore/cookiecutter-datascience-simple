@@ -1,6 +1,6 @@
 .PHONY: init
 init:
-	poetry install
+	poetry install --no-root
 
 .PHONY: test
 test:
@@ -14,11 +14,10 @@ test-all:
 .PHONY: format
 format:
 	poetry run black .
-	poetry run isort .
+	poetry run ruff check --select I --fix .
 
 .PHONY: lint
 lint:
 	poetry run black --check .
-	poetry run isort --check .
-	poetry run flake8 .
+	poetry run ruff .
 	poetry run pylint .

@@ -24,7 +24,7 @@ def create_and_run_notebook():
         nbformat.write(notebook, outfile)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def initialize_project(tmp_path_factory):
     parent_dir = tmp_path_factory.mktemp("parent")
     create_project(parent_dir, project_name=PROJECT_NAME)
@@ -53,6 +53,27 @@ def test_format_corrects_notebooks_and_strips_output(initialize_project):
 
     assert notebook["cells"][0]["source"] == "1 + 1"
     assert notebook["cells"][0]["outputs"] == []
+
+
+def test_format_applies_formatting(initialize_project):
+    with open("src/main.py", "w") as main_file:
+        main_file.write("x=42")
+
+    subprocess.run(["make", "format"], check=True)
+
+    with open("src/main.py", "r") as main_file:
+        assert main_file.readlines() == ["x = 42\n"]
+
+
+def test_format_performs_import_sorting(initialize_project):
+    with open("src/main.py", "w") as main_file:
+        main_file.write("import sys\n")
+        main_file.write("import os\n")
+
+    subprocess.run(["make", "format"], check=True)
+
+    with open("src/main.py", "r") as main_file:
+        assert main_file.readlines() == ["import os\n", "import sys\n"]
 
 
 def test_lint_target_finds_no_errors(initialize_project):

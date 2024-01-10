@@ -1,16 +1,15 @@
 .PHONY: init
 init:
-	poetry install
-	poetry run jupyter contrib nbextension install --sys-prefix
+	poetry install --no-root
 
 .PHONY: format
 format:
 	poetry run black .
-	poetry run isort .
-	find . -name "*.ipynb" -not -path "*ipynb_checkpoints*" -print0 | xargs -0 pipenv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
+	poetry run nbqa black .
+	poetry run ruff check --select I --fix .
+	find . -name "*.ipynb" -not -path "*ipynb_checkpoints*" -print0 | xargs -0 poetry run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
 
 .PHONY: lint
 lint:
 	poetry run black --check .
-	poetry run isort --check .
-	poetry run flake8 .
+	poetry run ruff .
